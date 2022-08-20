@@ -22,7 +22,7 @@ body {
     background-color: rgb(0, 0, 0);
     background-image: url("imgs/bg2copia.jpg");
     background-repeat: no-repeat;
-    background-size: cover
+    background-size: cover;
 }
 
 
@@ -37,16 +37,17 @@ body {
     position: relative;
     right: 145px;
     top: 100px;
+    
 }
 
 
-#playBtn {
+#tableBtn {
     position: absolute;
     top: 53%;
-    left: 37%;
+    left: 30%;
     font-family: 'Silkscreen', cursive;
     height: 40px;
-    width: 100px;
+    width: 300px;
     font-family:'Exo 2', sans-serif;
     background-color: transparent;
     font-size: 30px;
@@ -72,4 +73,6 @@ body {
         0 0 6px #ffffff,
         0 0 7px #ffffff,
         0 0 8px #fffeff;  
-}   
+} 
+
+
