@@ -1,3 +1,28 @@
+
+function bgTransition(){
+
+    btn.remove() 
+    const body = document.querySelector("body");
+    body.style.cssText = "background-image: url(imgs/options2.jpg)"
+
+    const title = document.querySelector("#title");
+    title.style.cssText = "animation: none; position: static; margin-top: 0"
+}
+
+const btn = document.querySelector("#playBtn");
+btn.addEventListener("click", bgTransition);
+
+
+
+
+
+
+
+
+
+
+
+
 function getComputerChoice() { //per ottenere la scelta casuale del computer
 
     let options = ["rock", "paper", "scissors"];
@@ -56,13 +81,13 @@ function playRound(playerSelection, computerSelection) { //per giocare il primo 
     return winner;
 }
 
-function game() { //per far giocare l'intera partita (composta in questo caso da 5 round)
+/*function game() { //per far giocare l'intera partita (composta in questo caso da 5 round)
     for(let i = 0; i < 5; i++){
         const playerSelection = prompt("Rock, Paper or Scissors?", "");
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     }
-}
+}*/
 
 function showWinner() { //per determinare il vincitore
     if(computerScore > playerScore) {
