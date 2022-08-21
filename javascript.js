@@ -1,10 +1,12 @@
 
 function bgTransition(){
-
     tableBtn.remove() 
+
+    //body
     const body = document.querySelector("body");
     body.style.cssText = "background-image: url(imgs/options2.jpg)"
-
+    
+    //title
     const title = document.querySelector("#title");
     title.style.cssText = `animation: none; 
                            position: static; 
@@ -19,97 +21,72 @@ function bgTransition(){
                                     0 0 60px #f5e105,
                                     0 0 80px #f5e105;`;
 
+    //subtitle
     const subtitle = document.createElement("h3");
     subtitle.textContent = "welcome to the third table of the underground gambling den \"Rock Paper Scissors\"";
-    subtitle.style.cssText = `text-align: center; 
-                              color: white; 
-                              font-size: 30px; 
-                              font-family: 'Exo 2', sans-serif; 
-                              position: relative; 
-                              bottom: 40px;
-                              text-shadow: 
-                                        0 0 1px #fff, 
-                                        0 0 2px #fff, 
-                                        0 0 1px #fff, 
-                                        0 0 5px #f5e105, 
-                                        0 0 8px #f5e105, 
-                                        0 0 10px #f5e105, 
-                                        0 0 30px #f5e105,
-                                        0 0 60px #f5e105;`;
     body.appendChild(subtitle);
     
+    //play button
     const playBtn = document.createElement("button");
     playBtn.setAttribute("id", "playBtn");
-    playBtn.textContent = "START THE MATCH";
-    playBtn.style.cssText = `position: absolute;
-                            left: 43%;
-                            top: 50%;
-                            height: 60px;
-                            width: 230px;
-                            color: white;
-                            background-color: transparent;
-                            border-color: white;
-                            font-size: 20px;
-                            font-family:'Exo 2', sans-serif; 
-                            text-shadow: 
-                                    0 0 1px #fff, 
-                                    0 0 2px #fff, 
-                                    0 0 1px #fff, 
-                                    0 0 5px #fff, 
-                                    0 0 8px #fff, 
-                                    0 0 10px #fff, 
-                                    0 0 30px #fff,
-                                    0 0 60px #fff;
-                            box-shadow: 
-                                    0 0 5px #fff, 
-                                    0 0 5px #fff, 
-                                    0 0 5px #fff, 
-                                    0 0 5px #fff, 
-                                    0 0 1px #fff, 
-                                    0 0 1px #fff, 
-                                    0 0 0px #fff,
-                                    0 0 55px #fff;`;
-                            
+    playBtn.textContent = "START THE MATCH";                         
     body.appendChild(playBtn);
     playBtn.addEventListener("click", showOptions)
 }
 
+function showScore() {
+    console.log("ciao")
+}
+
+
+
 function showOptions() {
     playBtn.remove();
     const body = document.querySelector("body");
-    const divBtns = document.createElement("div");
-    const rockBtn = document.createElement("button");
-    const paperBtn = document.createElement("button");
-    const scissorsBtn = document.createElement("button");
 
-    rockBtn.style.cssText = `background-image: url(imgs/rock-icon.jpg);
-                            background-size: 150px;
-                            height: 240px;
-                            width: 150px;`;
+    const divsContainer = document.createElement("div");
+    divsContainer.setAttribute("id", "divsContainer");
     
-    paperBtn.style.cssText = `background-image: url(imgs/paper-icon.jpg);
-                              background-size: 150px;
-                              height: 240px;
-                              width: 150px;`;
+    //player buttons container
+    const divPlayerBtns = document.createElement("div");
+    divPlayerBtns.setAttribute("id", "playerBtns");
 
-    scissorsBtn.style.cssText = `background-image: url(imgs/scissors-icon.jpg);
-                                 background-size: 150px;
-                                 background-repeat: no-repeat;
-                                 height: 240px;
-                                 width: 150px;`;
+    //button options
+    //rock
+    const playerRockBtn = document.createElement("button");
+    playerRockBtn.setAttribute("id", "playerRockBtn");
+    const computerRockBtn = document.createElement("button");
+    computerRockBtn.setAttribute("id", "computerRockBtn");
 
-    divBtns.style.cssText = `display: flex;
-                             margin-top: 150px;
-                             gap: 10px;`;
+    //paper
+    const playerPaperBtn = document.createElement("button");
+    playerPaperBtn.setAttribute("id", "playerPaperBtn");
+    const computerPaperBtn = document.createElement("button");
+    computerPaperBtn.setAttribute("id", "computerPaperBtn");
 
-    body.appendChild(divBtns);
-    divBtns.appendChild(rockBtn);
-    divBtns.appendChild(paperBtn);
-    divBtns.appendChild(scissorsBtn);
+    //scissors
+    const playerScissorsBtn = document.createElement("button");
+    playerScissorsBtn.setAttribute("id", "playerScissorsBtn");
+    const computerScissorsBtn = document.createElement("button");
+    computerScissorsBtn.setAttribute("id", "computerScissorsBtn");
 
-    rockBtn.addEventListener("click", () => {
-        console.log("ciao")
-    });
+    //computer buttons options 
+
+    const divComputerBtns = document.createElement("div");
+    divComputerBtns.setAttribute("id", "computerBtns");
+
+    body.appendChild(divsContainer);
+    divsContainer.appendChild(divPlayerBtns);
+    divsContainer.appendChild(divComputerBtns);
+
+    divPlayerBtns.appendChild(playerRockBtn);
+    divPlayerBtns.appendChild(playerPaperBtn);
+    divPlayerBtns.appendChild(playerScissorsBtn);
+
+    divComputerBtns.appendChild(computerRockBtn);
+    divComputerBtns.appendChild(computerPaperBtn);
+    divComputerBtns.appendChild(computerScissorsBtn);
+
 }
 
 const tableBtn = document.querySelector("#tableBtn");

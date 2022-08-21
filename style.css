@@ -75,4 +75,101 @@ body {
         0 0 8px #fffeff;  
 } 
 
+h3 {
+    text-align: center; 
+    color: white; 
+    font-size: 30px; 
+    font-family: 'Exo 2', sans-serif; 
+    position: relative; 
+    bottom: 40px;
+    text-shadow: 
+            0 0 1px #fff, 
+            0 0 2px #fff, 
+            0 0 1px #fff, 
+            0 0 5px #f5e105,                            
+            0 0 8px #f5e105, 
+            0 0 10px #f5e105, 
+            0 0 30px #f5e105,
+            0 0 60px #f5e105;                                                        
+} 
+
+#playBtn {
+    position: absolute;
+    left: 43%;
+    top: 50%;
+    height: 60px;
+    width: 230px;
+    color: white;
+    background-color: transparent;
+    border-color: white;
+    font-size: 20px;
+    font-family:'Exo 2', sans-serif; 
+    text-shadow: 
+            0 0 1px #fff, 
+            0 0 2px #fff, 
+            0 0 1px #fff, 
+            0 0 5px #fff, 
+            0 0 8px #fff, 
+            0 0 10px #fff, 
+            0 0 30px #fff,
+            0 0 60px #fff;
+    box-shadow: 
+            0 0 5px #fff, 
+            0 0 5px #fff, 
+            0 0 5px #fff, 
+            0 0 5px #fff, 
+            0 0 1px #fff, 
+            0 0 1px #fff, 
+            0 0 0px #fff,
+            0 0 55px #fff;
+}
+
+#divsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*player and computer buttons----------------------------------------------------*/
+
+#playerBtns, #computerBtns {
+    display: flex;
+    margin-top: 140px;
+    gap: 10px;
+}
+
+#playerBtns {
+    margin-left: 60px;
+}
+
+#computerBtns {
+    margin-right: 60px;
+}
+
+#playerBtns button {
+    background-size: 150px;
+    background-repeat: no-repeat;
+    height: 240px;
+    width: 150px;
+}
+
+#computerBtns button {
+    background-size: 150px;
+    background-repeat: no-repeat;
+    height: 240px;
+    width: 150px;
+}
+
+#playerRockBtn, #computerRockBtn {
+    background-image: url("imgs/rock-icon.jpg");
+    
+}
+
+#playerPaperBtn, #computerPaperBtn {
+    background-image: url("imgs/paper-icon.jpg");
+}
+
+#playerScissorsBtn, #computerScissorsBtn {
+    background-image: url("imgs/scissors-icon.jpg");
+}
+
 
