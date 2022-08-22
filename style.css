@@ -30,13 +30,13 @@ body {
     color: white;
     text-align: center;
     margin-top: 190px;
-    font-size: 75px;
+    font-size: 90px;
     font-family: 'Exo 2', sans-serif;  
     font-weight: 180; 
     animation: flicker 0.9s infinite alternate;
     position: relative;
-    right: 145px;
-    top: 100px;
+    right: 185px;
+    top: 170px;
     
 }
 
@@ -44,7 +44,7 @@ body {
 #tableBtn {
     position: absolute;
     top: 53%;
-    left: 30%;
+    left: 33%;
     font-family: 'Silkscreen', cursive;
     height: 40px;
     width: 300px;
@@ -124,25 +124,61 @@ h3 {
             0 0 55px #fff;
 }
 
-#divsContainer {
-    display: flex;
+#divBtns {
+    display: none;
     justify-content: space-between;
+}
+
+/*player and computer score------------------------------------------------------*/
+
+#divIcons {
+    display: none;
+    justify-content: center;
+    position: relative;
+    top: 20px;
+    gap: 70px;
+}
+
+#playerIcon {
+    width: 70px;
+    height: 70px;
+}
+
+#computerIcon {
+    width: 70px;
+    height: 70px;
+}
+
+#divScore {
+    display: none;
+    justify-content: center;
+    gap: 120px;
+    height: 20px;
+    position: relative;
+    bottom: 30px;
+}
+
+#playerScore, #computerScore {
+    color: white;
+    font-size: 60px;
+    font-family: 'Teko', sans-serif;
 }
 
 /*player and computer buttons----------------------------------------------------*/
 
 #playerBtns, #computerBtns {
     display: flex;
-    margin-top: 140px;
+    margin-top: 90px;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 #playerBtns {
-    margin-left: 60px;
+    margin-left: 150px;
 }
 
 #computerBtns {
-    margin-right: 60px;
+    margin-right: 150px;
 }
 
 #playerBtns button {
@@ -170,6 +206,14 @@ h3 {
 
 #playerScissorsBtn, #computerScissorsBtn {
     background-image: url("imgs/scissors-icon.jpg");
+}
+
+#roundWinner{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 42%;
 }
 
 
