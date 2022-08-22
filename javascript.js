@@ -9,7 +9,7 @@ function bgTransition(){    //CAMBIA LO SFONDO, PASSANDO ALLA SECONDA SCHERMATA
 
     //body
     const body = document.querySelector("body");
-    body.style.cssText = "background-image: url(imgs/options2.jpg)"
+    body.style.cssText = "background-image: url(imgs/newBg.jpg)"
     
     //title
     const title = document.querySelector("#title");
@@ -67,36 +67,36 @@ function showOptions() {   //MOSTRA LE OPZIONI PER IL PLAYER E IL COMPUTER
 function playRound(playerSelection, computerSelection) {         //GIOCA UN ROUND
     computerSelection = getComputerChoice();
     console.log(computerSelection);
-    let winner;
+    let roundWinner;
     if(playerSelection === computerSelection) {
-        winner = `Tie! ${playerSelection} ties with ${computerSelection}`;
+        roundWinner = `Tie! ${playerSelection} ties with ${computerSelection}`;
     }
     else if(playerSelection === "rock" && computerSelection === "paper") {
-        winner = "You lose! Paper beats Rock!";
+        roundWinner = "You lose! Paper beats Rock!";
         computerPoints += 1;
     }
     else if(playerSelection === "rock" && computerSelection === "scissors") {
-        winner = "You win! Rock beats scissors!";
+        roundWinner = "You win! Rock beats scissors!";
         playerPoints += 1;
     }
     else if(playerSelection === "paper" && computerSelection === "rock") {
-        winner = "You win! Paper beats Rock!";
+        roundWinner = "You win! Paper beats Rock!";
         playerPoints += 1;
     }
     else if(playerSelection === "paper" && computerSelection === "scissors") {
-        winner = "You lose! Scissors beat Paper";
+        roundWinner = "You lose! Scissors beat Paper";
         computerPoints += 1;
     }
     else if(playerSelection === "scissors" && computerSelection === "rock") {
-        winner = "You lose! Rock beats Scissors!";
+        roundWinner = "You lose! Rock beats Scissors!";
         computerPoints += 1;
     }
     else {
-        winner = "You win ! Scissors beat Paper!";
+        roundWinner = "You win ! Scissors beat Paper!";
         playerPoints += 1;
     }
 
-    updateScore(winner);
+    updateScore(roundWinner);
     if(playerPoints + computerPoints === 5){
         showWinner()
     }
@@ -108,7 +108,7 @@ function getComputerChoice() {     //GENERA LA SCELTA CASUALE DEL COMPUTER
     return options[randomNumber];
 }
 
-function updateScore(winner) {           //AGGIORNA LO SCORE DELLA PARTITA AL TERMINARE DI OGNI ROUND    
+function updateScore(roundWinner) {           //AGGIORNA LO SCORE DELLA PARTITA AL TERMINARE DI OGNI ROUND    
     const body = document.querySelector("body");               
     const playerScore = document.getElementById("playerScore");
     playerScore.textContent = `${playerPoints}`;
@@ -117,16 +117,30 @@ function updateScore(winner) {           //AGGIORNA LO SCORE DELLA PARTITA AL TE
     computerScore.textContent = `${computerPoints}`; 
 
     const para = document.getElementById("roundWinner");
-    para.textContent = winner;
+    para.textContent = roundWinner;
 }
 
 function showWinner() {
-    endGame()
+    const endRemove = document.getElementById("endRemove");
+    endRemove.remove();
+
+    const body = document.querySelector("body");
+    const winner = document.createElement("h1");
+    ;
+    if(playerPoints > computerPoints) {
+        winner.textContent = "YOU WON!";
+        winner.setAttribute("id", "winnerWin")
+    }
+    else {
+        winner.textContent = "YOU LOST!"
+        winner.setAttribute("id", "winnerLose")
+    }
+    body.appendChild(winner);
+    timedRefresh();
 }
 
-function endGame() {
-    const container = document.getElementById("container");
-    container.remove();
+function timedRefresh() {
+    setTimeout("location.reload(true);", 3000)
 }
 
 const music = document.querySelector("iframe");

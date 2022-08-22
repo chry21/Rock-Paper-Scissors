@@ -45,7 +45,6 @@ body {
     position: absolute;
     top: 53%;
     left: 33%;
-    font-family: 'Silkscreen', cursive;
     height: 40px;
     width: 300px;
     font-family:'Exo 2', sans-serif;
@@ -169,7 +168,7 @@ h3 {
 #playerBtns, #computerBtns {
     display: flex;
     margin-top: 90px;
-    gap: 10px;
+    gap: 30px;
     flex-shrink: 0;
 }
 
@@ -197,7 +196,6 @@ h3 {
 
 #playerRockBtn, #computerRockBtn {
     background-image: url("imgs/rock-icon.jpg");
-    
 }
 
 #playerPaperBtn, #computerPaperBtn {
@@ -216,4 +214,34 @@ h3 {
     left: 42%;
 }
 
+#winnerWin{
+    text-align: center;
+    font-size: 200px;
+    font-family: 'Exo 2', sans-serif;
+    color: white;
+    text-shadow:
+            0 0 1px #fff, 
+            0 0 2px #fff, 
+            0 0 3px #fff, 
+            0 0 5px #004cff, 
+            0 0 8px #004cff, 
+            0 0 30px #004cff, 
+            0 0 60px #004cff,
+            0 0 80px #004cff;
+}
 
+#winnerLose{
+    text-align: center;
+    font-size: 200px;
+    font-family: 'Exo 2', sans-serif;
+    color: white;
+    text-shadow:
+            0 0 1px #fff, 
+            0 0 2px #fff, 
+            0 0 3px #fff, 
+            0 0 5px #ff0000, 
+            0 0 8px #ff0000, 
+            0 0 30px #ff0000, 
+            0 0 60px #ff0000,
+            0 0 80px #ff0000;
+}
