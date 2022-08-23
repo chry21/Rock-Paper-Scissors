@@ -1,18 +1,25 @@
+   
 let playerPoints = 0;
 let computerPoints = 0;
-let playerSelection;
-
+const body = document.querySelector("body");
+const title = document.querySelector("#title");
+const divIcons = document.getElementById("divIcons");
+const divScore = document.getElementById("divScore");
+const playerScore = document.getElementById("playerScore");
+const computerScore = document.getElementById("computerScore");
+const divBtns = document.getElementById("divBtns");
+const para = document.getElementById("roundWinner");
+const endRemove = document.getElementById("endRemove");
+const music = document.querySelector("iframe");
 
 function bgTransition(){    //CAMBIA LO SFONDO, PASSANDO ALLA SECONDA SCHERMATA
     tableBtn.remove();
     music.remove();
 
     //body
-    const body = document.querySelector("body");
-    body.style.cssText = "background-image: url(imgs/newBg.jpg)"
+    body.style.cssText = "background-image: url(imgs/gameBg.jpg)"
     
     //title
-    const title = document.querySelector("#title");
     title.style.cssText = `animation: none; 
                            position: static; 
                            margin-top: 0; 
@@ -27,8 +34,9 @@ function bgTransition(){    //CAMBIA LO SFONDO, PASSANDO ALLA SECONDA SCHERMATA
                                     0 0 80px #f5e105;`;
 
     //subtitle
-    const divIcons = document.getElementById("divIcons");
+
     const subtitle = document.createElement("h3");
+    subtitle.setAttribute("id", "subtitle");
     subtitle.textContent = "welcome to the third table of the underground gambling den \"Rock Paper Scissors\"";
     body.insertBefore(subtitle, divIcons)
     
@@ -44,23 +52,16 @@ function bgTransition(){    //CAMBIA LO SFONDO, PASSANDO ALLA SECONDA SCHERMATA
 }
 
 function showScore() {    //MOSTRA IL PUNTEGGIO DEL PLAYER E DEL COMPUTER                                        
-    const divIcons = document.getElementById("divIcons");
     divIcons.style.display = "flex";
-
-    const divScore = document.getElementById("divScore");
     divScore.style.display = "flex";
 
-    const playerScore = document.getElementById("playerScore");
-    playerScore.textContent = `${playerPoints}`;    
-
-    const computerScore = document.getElementById("computerScore");
-    computerScore.textContent = `${computerPoints}`;    
+    playerScore.textContent = "0";    
+    computerScore.textContent = "0";    
 } 
 
 function showOptions() {   //MOSTRA LE OPZIONI PER IL PLAYER E IL COMPUTER                                     
     playBtn.remove();
 
-    const divBtns = document.getElementById("divBtns");
     divBtns.style.display = "flex";
 }
 
@@ -68,6 +69,7 @@ function playRound(playerSelection, computerSelection) {         //GIOCA UN ROUN
     computerSelection = getComputerChoice();
     console.log(computerSelection);
     let roundWinner;
+
     if(playerSelection === computerSelection) {
         roundWinner = `Tie! ${playerSelection} ties with ${computerSelection}`;
     }
@@ -108,23 +110,17 @@ function getComputerChoice() {     //GENERA LA SCELTA CASUALE DEL COMPUTER
     return options[randomNumber];
 }
 
-function updateScore(roundWinner) {           //AGGIORNA LO SCORE DELLA PARTITA AL TERMINARE DI OGNI ROUND    
-    const body = document.querySelector("body");               
-    const playerScore = document.getElementById("playerScore");
+function updateScore(roundWinner) {           //AGGIORNA LO SCORE DELLA PARTITA AL TERMINARE DI OGNI ROUND                 
     playerScore.textContent = `${playerPoints}`;
 
-    const computerScore = document.getElementById("computerScore");
     computerScore.textContent = `${computerPoints}`; 
 
-    const para = document.getElementById("roundWinner");
     para.textContent = roundWinner;
 }
 
 function showWinner() {
-    const endRemove = document.getElementById("endRemove");
     endRemove.remove();
 
-    const body = document.querySelector("body");
     const winner = document.createElement("h1");
     ;
     if(playerPoints > computerPoints) {
@@ -143,27 +139,25 @@ function timedRefresh() {
     setTimeout("location.reload(true);", 3000)
 }
 
-const music = document.querySelector("iframe");
-const tableBtn = document.querySelector("#tableBtn");
 tableBtn.addEventListener("click", bgTransition);
 
 //addEventlisteners
 
 const playerRockBtn = document.getElementById("playerRockBtn");  
 playerRockBtn.addEventListener("click", () => {
-    playerSelection = "rock";
+    let playerSelection = "rock";
     playRound(playerSelection);
 });
 
 const playerPaperBtn = document.getElementById("playerPaperBtn");
 playerPaperBtn.addEventListener("click", () => {
-    playerSelection = "paper";
+    let playerSelection = "paper";
     playRound(playerSelection);
 });
 
 const playerScissorsBtn = document.getElementById("playerScissorsBtn");
 playerScissorsBtn.addEventListener("click", () => {
-    playerSelection = "scissors";
+    let playerSelection = "scissors";
     playRound(playerSelection);
 });
 
